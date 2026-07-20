@@ -13,12 +13,12 @@ CatalogFile.NTAMD64=fxvadNTAMD64.cat
 PnpLockDown=1
 
 [Manufacturer]
-%MfgName%=DFX,NTamd64,NTx86
+%MfgName%=DFX,NTamd64.10.0...16299,NTx86.10.0...16299
 
-[DFX.NTx86]
+[DFX.NTx86.10.0...16299]
 %DFX_Device.DeviceDesc%=DFX_Device,Root\%DEV_NAME%,*%DEV_NAME%
 
-[DFX.NTamd64]
+[DFX.NTamd64.10.0...16299]
 %DFX_Device.DeviceDesc%=DFX_Device,Root\%DEV_NAME%,*%DEV_NAME%
 
 ;-----------------------------------------------------------------------------
@@ -47,7 +47,7 @@ DisplayName=%DFX_Device.SvcDesc%
 ServiceType=1
 StartType=3
 ErrorControl=1
-ServiceBinary=%10%\system32\drivers\fxvad.sys
+ServiceBinary=%13%\fxvad.sys
 ;-----------------------------------------------------------------------------
 ;
 ; Common registry data
@@ -121,7 +121,7 @@ fxvad.sys=222
 fxvad.sys=222
 
 [DestinationDirs]
-DFX_Device.CopyList=10,system32\drivers
+DFX_Device.CopyList=13
 
 [DFX_Device.CopyList]
 fxvad.sys
