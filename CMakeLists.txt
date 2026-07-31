@@ -14,6 +14,12 @@ project(fxsound_driver VERSION 14.1.0 LANGUAGES CXX RC)
 # A WDM driver must not link CMake's normal user-mode Windows libraries.
 set(CMAKE_CXX_STANDARD_LIBRARIES "")
 
+if(MSVC)
+    # CMake assumes a normal user-mode C++ target and enables /EHsc.
+    # This WDM driver does not use C++ exceptions.
+    string(REPLACE "/EHsc" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+endif()
+
 if(NOT CMAKE_GENERATOR MATCHES "^Visual Studio")
     message(FATAL_ERROR
         "This driver currently requires a Visual Studio generator because it "

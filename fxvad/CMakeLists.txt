@@ -72,7 +72,6 @@ target_compile_options(fxvad_driver PRIVATE
     "$<$<COMPILE_LANGUAGE:CXX>:/W4>"
     "$<$<COMPILE_LANGUAGE:CXX>:/wd4996>"
     "$<$<COMPILE_LANGUAGE:CXX>:/GR->"
-    "$<$<COMPILE_LANGUAGE:CXX>:/EHs-c->"
 )
 
 set_target_properties(fxvad_driver PROPERTIES
