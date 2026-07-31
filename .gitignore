@@ -1,6 +1,7 @@
 ### .gitignore of the forked repo
 
 /activate.cmd
+build
 
 ### .gitignore of the original repo
 

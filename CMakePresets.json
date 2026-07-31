@@ -1,0 +1,43 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 4,
+    "minor": 2,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "vs2026-x64",
+      "displayName": "Visual Studio 2026 - x64",
+      "generator": "Visual Studio 18 2026",
+      "binaryDir": "${sourceDir}/build/vs2026-x64",
+      "architecture": {
+        "value": "x64,version=10.0.28000.0",
+        "strategy": "set"
+      },
+      "cacheVariables": {
+        "CMAKE_CONFIGURATION_TYPES": "Debug;Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "displayName": "Build Debug driver package",
+      "configurePreset": "vs2026-x64",
+      "configuration": "Debug",
+      "targets": [
+        "fxvad_package"
+      ]
+    },
+    {
+      "name": "release",
+      "displayName": "Build Release driver package",
+      "configurePreset": "vs2026-x64",
+      "configuration": "Release",
+      "targets": [
+        "fxvad_package"
+      ]
+    }
+  ]
+}
