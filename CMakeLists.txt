@@ -38,9 +38,12 @@ endif()
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(WindowsDriver)
+include(DriverIdentity)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 add_subdirectory(fxvad)
+
+configure_driver_identity(fxvad_driver)
 
 set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT fxvad_package)
