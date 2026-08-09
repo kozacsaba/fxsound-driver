@@ -1,3 +1,35 @@
+# FxSound Fork
+
+This is a fork of the FxSound driver, with the aim of making it more generalised and more easily integratable (for me).
+
+## What the driver does
+
+The driver provides a simple audio sink, as a virtual audio driver. The point of this is that you can capture the audio using WASAPI loopback, and render to a real audio output from a user-space application. This way, the potential bugs and errors of the audio processing (the user space app) are not system-level threats.
+
+## Configure the driver
+
+The following parameters can be edited from cmake (with fallback to defaults):
+* FXVAD_ID
+* FXVAD_DISPLAY_NAME
+* FXVAD_ICON
+* FXVAD_SPEAKER_GUID
+* FXVAD_WEBSITE
+
+## Changes in the fork
+
+* changed build system from msbuild to cmake
+* added a cmake presets for simpler config + build
+* made identity configurable
+
+Below is the original readme of the project:
+
+---
+<div align="center">
+The original upstream README follows below, unchanged.
+</div>
+
+---
+
 # FxSound
 
 FxSound is a digital audio program built for Windows PC's. The background processing, built on a high-fidelity audio engine, acts as a sort of digital soundcard for your system. This means that your signals will have the clean passthrough when FxSound is active. There are active effects for shaping and boosting your sound's volume, timbre, and equalization included on top of this clean processing, allowing you to customize and enhance your sound.

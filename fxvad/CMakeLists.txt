@@ -1,3 +1,5 @@
+# fxvad source
+
 set(fxvad_sources
     adapter.cpp
     basedma.cpp
@@ -10,9 +12,6 @@ set(fxvad_sources
 
     pcmex/mintopo.cpp
     pcmex/minwave.cpp
-
-    fxvad.rc
-    pcmex/fxvad.inf
 )
 
 set(fxvad_headers
@@ -29,22 +28,11 @@ set(fxvad_headers
     pcmex/pcmex.h
     pcmex/toptable.h
     pcmex/wavtable.h
-
-    fxsound.ico
 )
 
 add_library(fxvad_driver MODULE
     ${fxvad_sources}
     ${fxvad_headers}
-)
-
-set_source_files_properties(pcmex/fxvad.inf PROPERTIES
-    VS_TOOL_OVERRIDE "Inf"
-    VS_SETTINGS "TimeStamp=14.0.0.1"
-)
-
-set_source_files_properties(fxsound.ico PROPERTIES
-    HEADER_FILE_ONLY TRUE
 )
 
 source_group(
@@ -75,10 +63,8 @@ target_compile_options(fxvad_driver PRIVATE
 )
 
 set_target_properties(fxvad_driver PROPERTIES
-    OUTPUT_NAME "fxvad"
     COMPILE_WARNING_AS_ERROR ON
     FOLDER "Driver"
 )
 
 configure_wdm_driver(fxvad_driver)
-add_wdk_driver_package(fxvad_package fxvad_driver)

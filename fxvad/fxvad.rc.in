@@ -17,13 +17,12 @@ Abstract:
 
 #define VER_FILETYPE                VFT_DRV
 #define VER_FILESUBTYPE             VFT2_DRV_SOUND
-#define VER_FILEDESCRIPTION_STR     "FxSound Audio Enhancer"
+#define VER_FILEDESCRIPTION_STR     "@DRIVER_DEVICE_NAME@"
 
-#define VER_INTERNALNAME_STR        "fxvad.sys"
-#define VER_ORIGINALFILENAME_STR    "fxvad.sys"
+#define VER_INTERNALNAME_STR        "@DRIVER_SYS_NAME@"
+#define VER_ORIGINALFILENAME_STR    "@DRIVER_SYS_NAME@"
 
-#define VER_LEGALCOPYRIGHT_YEARS    "2021"
-#define VER_LEGALCOPYRIGHT_STR	    "Copyright (C) FxSound LLC"
+#define VER_LEGALCOPYRIGHT_STR      ""
 
 #define VER_FILEVERSION             14,01,00,0000
 #define VER_FILEVERSION_STR         "14.1.0.0"
@@ -35,11 +34,8 @@ Abstract:
 #define VER_PRODUCTVERSION_STR      VER_FILEVERSION_STR
 
 #undef VER_PRODUCTNAME_STR
-#define VER_PRODUCTNAME_STR         "FxSound"
+#define VER_PRODUCTNAME_STR         "@DRIVER_DISPLAY_NAME@"
 
-101 ICON "fxsound.ico"
+101 ICON "@DRIVER_ICON@"
 
 #include "common.ver"
-
-
-
