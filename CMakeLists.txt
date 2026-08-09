@@ -45,5 +45,6 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 add_subdirectory(fxvad)
 
 configure_driver_identity(fxvad_driver)
+add_wdk_driver_package(fxvad_package fxvad_driver)
 
 set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT fxvad_package)

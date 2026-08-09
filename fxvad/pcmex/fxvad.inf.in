@@ -8,8 +8,8 @@ Class=MEDIA
 Provider=%FXMN%
 ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
 DriverVer = 02/11/2021, 14.0.0.0
-CatalogFile.NTx86=fxvadNTx86.cat
-CatalogFile.NTAMD64=fxvadNTAMD64.cat
+CatalogFile.NTx86=@DRIVER_CAT_X86_NAME@
+CatalogFile.NTAMD64=@DRIVER_CAT_AMD64_NAME@
 PnpLockDown=1
 
 [Manufacturer]
@@ -47,7 +47,8 @@ DisplayName=%DFX_Device.SvcDesc%
 ServiceType=1
 StartType=3
 ErrorControl=1
-ServiceBinary=%13%\fxvad.sys
+ServiceBinary=%13%\@DRIVER_SYS_NAME@
+
 ;-----------------------------------------------------------------------------
 ;
 ; Common registry data
@@ -55,7 +56,7 @@ ServiceBinary=%13%\fxvad.sys
 ;-----------------------------------------------------------------------------
 [DFX_Device.AddReg]
 HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
-HKR,,Driver,,fxvad.sys
+HKR,,Driver,,@DRIVER_SYS_NAME@
 HKR,Drivers,SubClasses,,"wave,midi,mixer"
 
 HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
@@ -86,7 +87,7 @@ HKR,,FriendlyName,,%DFX_Device.Topo.szPname%
 ;PT added. Currently small icons are getting set but not the icons shown in sound panel.
 DeviceIcon,,,,%DFX_1_Icon_File%
 DeviceBrandingIcon,,,,%DFX_1_Icon_File%
-DeviceVendorWebSite,,,,"http://www.fxsound.com";
+@DRIVER_VENDOR_WEBSITE_LINE@
 
 ;;
 ;; All EP\\0 entries in the same grouping
@@ -109,49 +110,50 @@ HKR,"EP\\0", %PKEY_AudioEndpoint_Association%,,%KSNODETYPE_SPEAKER%
 ;
 ;-----------------------------------------------------------------------------
 [SourceDisksNames]
-222="FxSound Driver Disc","",222
+222="@DRIVER_DISPLAY_NAME@ Driver Disc","",222
 
 [SourceDisksFiles]
-fxvad.sys=222
+@DRIVER_SYS_NAME@=222
 
 [SourceDisksFiles.x86]
-fxvad.sys=222
+@DRIVER_SYS_NAME@=222
 
 [SourceDisksFiles.amd64]
-fxvad.sys=222
+@DRIVER_SYS_NAME@=222
 
 [DestinationDirs]
 DFX_Device.CopyList=13
 
 [DFX_Device.CopyList]
-fxvad.sys
+@DRIVER_SYS_NAME@
+
 ;======================================================
-;  Strings
+; Strings
 ;======================================================
 [Strings]
-FXMN="FxSound"
-MfgName="FxSound"
+FXMN="@DRIVER_PROVIDER_NAME@"
+MfgName="@DRIVER_PROVIDER_NAME@"
 
-DEV_NAME="FXVAD"
-DFX_Device.DeviceDesc="FxSound Audio Enhancer"
-DFX_Device.SvcDesc="FxSound Audio Enhancer"
+DEV_NAME="@DRIVER_DEVICE_ID@"
+DFX_Device.DeviceDesc="@DRIVER_DEVICE_NAME@"
+DFX_Device.SvcDesc="@DRIVER_DEVICE_NAME@"
 
-DFX_1_Icon_File="%10%\fxvad.sys,-101"
+DFX_1_Icon_File="%10%\@DRIVER_SYS_NAME@,-101"
 
-DFX_Device.Wave.szPname="FxSound Audio Enhancer"
-DFX_Device.Topo.szPname="FxSound Audio Enhancer Topology"
-DFX_Device_MIDI="FxSound Audio Enhancer -> Midi Device"
+DFX_Device.Wave.szPname="@DRIVER_DEVICE_NAME@"
+DFX_Device.Topo.szPname="@DRIVER_DISPLAY_NAME@ Audio Enhancer Topology"
+DFX_Device_MIDI="@DRIVER_DEVICE_NAME@ -> Midi Device"
 
 Proxy.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
 KSCATEGORY_AUDIO="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
 KSCATEGORY_RENDER="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
 KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
 
-KSNAME_Wave="FxSound Wave"
-KSNAME_Topology="FxSound Topology"
+KSNAME_Wave="@DRIVER_WAVE_NAME@"
+KSNAME_Topology="@DRIVER_TOPOLOGY_NAME@"
 
-GUID.DSPEAKERS="{6518B5E9-772E-48E2-B110-1752F65934E8}"
-Name.DSPEAKERS="FxSound Speakers"
+GUID.DSPEAKERS="@DRIVER_SPEAKER_GUID@"
+Name.DSPEAKERS="@DRIVER_SPEAKER_NAME@"
 MediaCategories="SYSTEM\CurrentControlSet\Control\MediaCategories"
 
 REG_BINARY="0x00000001"

@@ -68,4 +68,3 @@ set_target_properties(fxvad_driver PROPERTIES
 )
 
 configure_wdm_driver(fxvad_driver)
-add_wdk_driver_package(fxvad_package fxvad_driver)
